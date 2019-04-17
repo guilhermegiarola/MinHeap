@@ -1,15 +1,38 @@
 #include <iostream>
 #include <math.h>
+<<<<<<< HEAD
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+
+void constructHeap(int v[], int TAM){
+	for (int i = 0; i < TAM; i++){
+		v[i] = (rand() % TAM);
+	}
+}
+
+void worstCase(int v[], int TAM){
+	for (int i = 0; i < TAM; i++)
+		v[i] = TAM - 1 - i;
+}
+
+=======
 #define TAM 7
 
 using namespace std;
 
+>>>>>>> upstream/master
 void heapify(int v[], int pos, int size){
 	
 	//If there are subroot->left and subroot->right:
 	if(pos*2+2 <= size){										//O(1)
 		//If the subroot->left is smaller than subroot->right and the position is smaller than the size of the heap:
+<<<<<<< HEAD
+		if(v[pos*2+1] < v[pos*2+2] and pos*2+1 <= size){		//O(1)
+=======
 		if(v[pos*2+1] < v[pos*2+2] and pos*2+1 <= size){		//O(1)	
+>>>>>>> upstream/master
 			if(v[pos*2+1] < v[pos]){							//O(1)
 				int aux = v[pos*2+1];							//O(1)
 				v[pos*2+1] = v[pos];							//O(1)
@@ -20,7 +43,11 @@ void heapify(int v[], int pos, int size){
 		return;
 		}
 	
+<<<<<<< HEAD
+		//If the subroot->right is smaller than subroot->left and the position is smaller than the size of the heap:
+=======
 		//If the subroot->right is smaller than subroot->left and is smaller than the size of the heap:
+>>>>>>> upstream/master
 		else if(v[pos*2+1] >= v[pos*2+2] and pos*2+2 <= size){	//O(1)
 			if(v[pos*2+2] < v[pos]){							//O(1)
 				int aux = v[pos*2+2];							//O(1)
@@ -56,6 +83,37 @@ void heapify(int v[], int pos, int size){
 
 */
 
+<<<<<<< HEAD
+//Evaluates and tests if the vector is a heap, actually.
+bool isHeap(int v[], int TAM){
+	for (int i = 0; i < (TAM-1)/2; i++){
+		if (v[i] > v[2*i+1]){
+			cout << "Não é uma Heap!" << endl;
+			return false;
+		}
+		else if (v[i] > v[2*i+2]){
+			cout << "Não é uma Heap!" << endl;
+			return false;
+		}
+	}
+	cout << "É uma Heap!" << endl;
+	return true;
+}
+
+int main(){
+
+	
+	for (int TAM = 100; TAM < pow(10, 5); TAM = TAM + 500){
+		int v[TAM];
+		worstCase(v, TAM);
+		time_t antes = clock();
+		for (int i = (TAM-1)/2; i >= 0; i--){
+			heapify(v, i, TAM);
+		}
+		time_t depois = clock();
+		cout << depois - antes << ", " << TAM << endl;
+	}
+=======
 int * insert(int v[], int i){
 	int element;
 	cin >> element;
@@ -77,4 +135,5 @@ int main(){
 	for(int i = 0; i < TAM; i++)
 		cout << v[i] << " ";
 	cout << endl;
+>>>>>>> upstream/master
 }
