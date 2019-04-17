@@ -83,7 +83,6 @@ void heapify(int v[], int pos, int size){
 
 */
 
-<<<<<<< HEAD
 //Evaluates and tests if the vector is a heap, actually.
 bool isHeap(int v[], int TAM){
 	for (int i = 0; i < (TAM-1)/2; i++){
